@@ -1,0 +1,29 @@
+{
+  "name": "lodown-jerrymcdonald",
+  "version": "1.0.17",
+  "description": "My first npm library for lodown",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "istanbul cover _mocha -- test/ -R spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JerryMcDonald/lodown.git"
+  },
+  "author": "Jerry McDonald",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JerryMcDonald/lodown/issues"
+  },
+  "homepage": "https://github.com/JerryMcDonald/lodown#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "i": "^0.3.6",
+    "istanbul": "^0.4.5",
+    "mocha": "^7.1.0",
+    "sinon": "^9.0.0"
+  }
+}
