@@ -65,11 +65,12 @@ function typeOf(value) {
 module.exports.typeOf = typeOf;
 
 /**
- * first: Takes a given array and returns its values up to the given number
+ * first: Takes a given array and returns its values up to the given number. If it is a negative 
+ *        number or not an array, the function will return an empty array. 
  * 
- * @param: {Any array} array: Can be any array. 
+ * @param: {array} array: Can be any array. 
  * 
- * @param: {Any number} number: Can be any number, cannot be negative numbers
+ * @param: {number} number: Can be any number, cannot be negative numbers
  *                              or undefined
  * 
  * @return: {array}: Returns an array of the values up to the given number, If 
@@ -91,11 +92,13 @@ module.exports.first = first;
 
 
 /**
- * last: Takes a given array and returns the values counting down from the end
+ * last: Takes a given array and returns the values counting down from the end to the given
+ *       number. If you are not given an array the function will return an empty array. If
+ *       the you are given is negative the function will also return an array. 
  * 
- * @param: {Any array} array: Can be any array
+ * @param: {array} array: Can be any array
  * 
- * @param: {Any number} number: Can be any number, cannot be negative numbers
+ * @param: {number} number: Can be any number, cannot be negative numbers
  *                              or undefined
  * 
  * @return: {array}: Returns an array of the values up to the given number counting 
@@ -117,11 +120,12 @@ module.exports.last = last;
 
 /**
  * indexOf: Takes an array and a value then returns the index of the first
- *          occurance of the value. 
+ *          occurance of the value. If the value is a negative number, undefined
+ *          or not in the array: The function will return a negative number. 
  * 
- * @param: {Any array} array: Can be any array
+ * @param: {array} array: Can be any array
  * 
- * @param: {Any value} value: Can be any number, cannot be negative numbers
+ * @param: {value} value: Can be a number or a string, cannot be negative numbers
  *                            or undefined
  * 
  * @return: {number}: returns the index from array where the value appears first
@@ -143,9 +147,9 @@ module.exports.indexOf = indexOf;
  * contains: Takes an array and a value and returns true if that value is in
  *           the array
  * 
- * @param: {Any array} array: can be any array
+ * @param: {array} array: can be any array
  * 
- * @param: {Any value} value: can be any value
+ * @param: {number or string} value: can be a number or a string
  * 
  * @return: {boolean}: returns true or false based on if that array
  *                     contains the given value
@@ -160,18 +164,19 @@ module.exports.contains = contains;
 
 
 /**
- * unique:  Given an array and a value, return a new array with all of 
- *          the duplicates removed.
+ * unique:  Given an array, return a new array with all of 
+ *          the duplicates removed. If there is no array given 
+ *          then the function will return undefined.
  * 
- * @param: {Any array} array: can be any array
+ * @param: {array} array: can be any array
  * 
  * 
- * @return: {array} arr: Return the given array with duplicates removed
+ * @return: {array} arr: Return the given array with the duplicate elements removed
  * 
  */
 
 function unique (array){
-    if (array === undefined || array === null){ return 'There is no spoon' }
+    if (array === undefined || array === null){ return 'undefined' }
     var arr = [];
     for (var i = 0; i < array.length; i++){
       if (indexOf(array, array[i]) >= 0 && indexOf(arr,array[i]) === -1){
@@ -191,9 +196,9 @@ module.exports.unique = unique;
  *         will be pushed into a new array. By the end of the function filter
  *         the new array of true elemenets will be returned.
  * 
- * @param: {Any array} array: Can be any array
+ * @param: {array} array: Can be any array
  * 
- * @param: {Any function} fun: Can be any function
+ * @param: {function} fun: Can be any function
  * 
  * @return: {array} newArray: This array holds the elements from the given array
  *                            that have returned true.
@@ -221,9 +226,9 @@ module.exports.filter = filter;
  *         will be pushed into a new array. By the end of the function filter
  *         the new array of fasle elemenets will be returned.
  * 
- * @param: {Any array} array: Can be any array
+ * @param: {array} array: Can be any array
  * 
- * @param: {Any function} fun: Can be any function
+ * @param: {function} fun: Can be any function
  * 
  * @return: {array} falseElements: This array holds the elements from the given array
  *                                 that have returned false.
@@ -263,7 +268,7 @@ module.exports.reject = reject;
  *            the given function. The second array will hold the elements that 
  *            returned something falsy.
  * 
- * @param: {Any array} array: Any array
+ * @param: {array} array: Any array
  * 
  * @param: {function} fun: A function that will return values, preferably truthy or
  *                         falsy values. 
@@ -286,7 +291,7 @@ function partition (array, fun) {
     
     // Done, return the new array
     return newArray;
-}
+
 
 module.exports.partition = partition;
 
@@ -318,17 +323,17 @@ module.exports.map = map;
 
 
 /**
- * pluck: Pluck will take an array of elements and a property, it will return an 
- *        array of "elements" or "values" for the given "key" or "property" from 
- *        each object.
+ * pluck: Pluck will take an array of objects and a string, it will look for
+ *        keys in the given object that match the given string, the function
+ *        will then return an array of values from each key that matches the
+ *        string. 
  * 
  * @param: {array} array: An array of objects
  * 
- * @param: {a property} property: A 'key' you would like to look for in each object.
+ * @param: {string} property: A 'key' you would like to look for in each object.
  * 
- * @return: {array} newArray: An array containing the "elements" or "values" of each
- *                            key from each object that matches the given "key" or 
- *                            "property".
+ * @return: {array} newArray: An array containing the values of each key from each
+ *                            object that matches the given string
  */
 
 function pluck (array, property) {
@@ -358,7 +363,7 @@ module.exports.pluck = pluck;
  * 
  * @param: {collection} collect: The collection argument can be an array or an object
  *
- * @param: {a function} fun: The function argument should return a true or false value
+ * @param: {function} fun: The function argument should return a true or false value
  *
  * @return: {boolean} : true or false, true if all elements return true from the function
  *                      false if at least one element returns false. 
@@ -392,7 +397,7 @@ module.exports.every = every;
  * 
  * @param: {collection} collect: The collection argument can be an array or an object
  *
- * @param: {a function} fun: The function argument should return a true or false value
+ * @param: {function} fun: The function argument should return a true or false value
  *
  * @return: {boolean} : true or false, true if at least one element of the function
  *                      returns true, false if no elements are truthy
@@ -424,19 +429,28 @@ module.exports.some = some;
 
 
 /**
- * reduce: Reduce 
+ * reduce: The reduce() function will take an array, a function, and a seed. It will
+ *         loop through the array and will perform the given function on each element
+ *         in the array. But unlike each() or map(), reduce() will accumulate a value 
+ *         after each pass. Returning the final accumulated value as the end return.
+ *         If a seed is given reduce() will begin with the seed as the accumulator, 
+ *         if no seed is given reduce() will begin with the first element in the array
+ *         as the accumulator. 
  * 
- * @param: {array} array: My reduce function will begin with the accumulator as the 
- *                        given seed or the first element on the given array, then
- *                        it will run the given function on the remaining elements
- *                        and "accumulate" the returned values into one element and
- *                        return the element.
+ * @param: {array} array: Can be an array of any data type, even an array of arrays or
+ *                        objects
  * 
- * @param: {function} rFun: Any function that can take three parameters and return 
- *                          a value to be passed into accumulator
+ * @param: {function} rFun: Any function that will be able to access the element, index, 
+ *                          and array. You can get as creative as you want with this function
+ *                          but you should return your accumulator at the end.  
  * 
- * @param: {element} seed: This is the element the function will begin at. If no 
- *                         seed is provided then start at element index 0.
+ * @param: {any datatype} seed: This is the element the function will begin at. It can
+ *                              be a number, string, array, or object. If no seed is provided 
+ *                              then start at element index 0.
+ * 
+ * @return: {any datatype} accumulator: This can be any datatype and it will be the accumulation of 
+ *                                      of running reduce on each element.   
+ * 
  */
   
 function reduce (array, rFun, seed){
