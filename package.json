@@ -1,6 +1,6 @@
 {
   "name": "lodown-jerrymcdonald",
-  "version": "1.0.17",
+  "version": "1.0.21",
   "description": "My first npm library for lodown",
   "main": "index.js",
   "directories": {

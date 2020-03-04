@@ -38,7 +38,7 @@ function identity(value) {
     return value;
 }
 
-module.exports.identity = identity();
+module.exports.identity = identity;
 
 /**
  * typeof: takes a value and returns the datatype
@@ -62,7 +62,7 @@ function typeOf(value) {
     }
 }
 
-module.exports.typeOf = typeOf();
+module.exports.typeOf = typeOf;
 
 /**
  * first: Takes a given array and returns its values up to the given number
@@ -87,7 +87,7 @@ function first(array, number) {
         return array.slice(0, number);
 }
 
-module.exports.first = first();
+module.exports.first = first;
 
 
 /**
@@ -112,7 +112,7 @@ module.exports.first = first();
         return array.slice(-number, array.length);
 }
 
-module.exports.last = last();
+module.exports.last = last;
 
 
 /**
@@ -137,7 +137,7 @@ function indexOf (array, value) {
     return -1;
 }
 
-module.exports.indexOf = indexOf();
+module.exports.indexOf = indexOf;
 
 /**
  * contains: Takes an array and a value and returns true if that value is in
@@ -155,7 +155,7 @@ function contains (array, value) {
     return indexOf(array,value) >= 0 ? true : false; 
 }  
 
-module.exports.contains = contains();
+module.exports.contains = contains;
 
 
 
@@ -181,7 +181,7 @@ function unique (array){
     return arr;
     }
     
-module.exports.unique = unique();
+module.exports.unique = unique;
 
 
    
@@ -288,7 +288,7 @@ function partition (array, fun) {
     return newArray;
 }
 
-module.exports.partition = partition();
+module.exports.partition = partition;
 
 
 
@@ -313,7 +313,7 @@ function map (collection,fun){
     return newArray;
 }
 
-module.exports.map = map();
+module.exports.map = map;
 
 
 
@@ -345,7 +345,7 @@ function pluck (array, property) {
 
 }
 
-module.exports.pluck = pluck();
+module.exports.pluck = pluck;
 
 
 
@@ -379,7 +379,7 @@ function every (collect, fun) {
     return !contains(newArray, false);
 }
 
-module.exports.every = every();
+module.exports.every = every;
 
 
 
@@ -419,7 +419,7 @@ function some (collect, fun){
     return contains(newArray, true);
 }
 
-module.exports.some = some();
+module.exports.some = some;
 
 
 
@@ -456,7 +456,7 @@ function reduce (array, rFun, seed){
     
 }
 
-module.exports.reduce = reduce();
+module.exports.reduce = reduce;
 
 /**
  * extend: My extend function will take an array of objects. And combine and assign
@@ -484,4 +484,4 @@ function extend (...array){
      return array[0];
    }
    
-module.exports.extend = extend();
+module.exports.extend = extend;
