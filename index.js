@@ -191,10 +191,10 @@ module.exports.unique = unique;
 
    
 /**
- * filter: Filter will loop through an array and run the given function on each
- *         element. If the function returns true on the element then that element
- *         will be pushed into a new array. By the end of the function filter
- *         the new array of true elemenets will be returned.
+ * filter: Filter will loop through an array and run the given function on the element, 
+ *         the index, and the collection. If the function returns true on the element 
+ *         then that element will be pushed into a new array. By the end of the function 
+ *         filter the new array of true elemenets will be returned.
  * 
  * @param: {array} array: Can be any array
  * 
@@ -221,10 +221,10 @@ module.exports.filter = filter;
 
 
 /**
- * reject: Reject will loop through an array and run the given function on each
- *         element. If the function returns false on the element then that element
- *         will be pushed into a new array. By the end of the function filter
- *         the new array of fasle elemenets will be returned.
+ * reject: Reject will loop through an array and run the given function on the element,
+ *         the index, and the collection. If the function returns false on the element 
+ *         then that element will be pushed into a new array. By the end of the function
+ *         a new array of fasle elemenets will be returned.
  * 
  * @param: {array} array: Can be any array
  * 
@@ -262,8 +262,8 @@ module.exports.reject = reject;
 
 
 /**
- * partition: Partition will run the given function on the given array. It will
- *            create a new array of two arrays (newArray). One of the arrays in
+ * partition: Partition will run the given function on elements, indexs, and collection. 
+ *            It will create a new array of two nested arrays (newArray). One of the arrays in
  *            newArray will hold the elements that returned something truthy from
  *            the given function. The second array will hold the elements that 
  *            returned something falsy.
@@ -299,9 +299,9 @@ module.exports.partition = partition;
 
 /**
  * map: The map function takes a collection and a function, then runs the given 
- *      function on each element of the collection, for objects it will run the
- *      function on each value, and each element on arrays. map will then push 
- *      the results of each functioned element into newArray. Then return newArray. 
+ *      function on the element, the index, and the collection, for objects it will run the
+ *      function on the value, key, and collection. Map will then push 
+ *      the results of each function into newArray. Then return newArray. 
  * 
  * @param: {collection} collection: The collection can be an array or an object
  * 
@@ -355,7 +355,7 @@ module.exports.pluck = pluck;
 
 
 /**
- * every: The every() function will run the given function on each element of the given
+ * every: The every() function will run the given function on the elements, indexs, and
  *        collection, returning the true or false outcomes into a new array using map()
  *        every() will then check if every element of the true/false array is true. If so
  *        return true, otherwise fasle. If no function is given. Then every() will check
@@ -389,8 +389,8 @@ module.exports.every = every;
 
 
 /**
- * some: The some() function will run the given function on each element of the given
- *        collection, returning the true or false outcomes into a new array using map().
+ * some: The some() function will run the given function on elements, indexs, and the
+ *        given collection. Returning the true or false outcomes into a new array using map().
  *        some() will then check if at least one element of the true/false array is true. 
  *        If so - return true, otherwise fasle. If no function is given, then some() will
  *        check if at least one element in the given collection is truthy.
@@ -431,7 +431,7 @@ module.exports.some = some;
 /**
  * reduce: The reduce() function will take an array, a function, and a seed. It will
  *         loop through the array and will perform the given function on each element
- *         in the array. But unlike each() or map(), reduce() will accumulate a value 
+ *         and index in the array. But unlike each() or map(), reduce() will accumulate a value 
  *         after each pass. Returning the final accumulated value as the end return.
  *         If a seed is given reduce() will begin with the seed as the accumulator, 
  *         if no seed is given reduce() will begin with the first element in the array
